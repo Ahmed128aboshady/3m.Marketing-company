@@ -246,7 +246,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('form-message').value;
 
             // Format WhatsApp Message
-            const whatsappNumber = "201553900394";
+            // Decide which WhatsApp number to send to based on client's phone number
+            let whatsappNumber = "201008938924"; // default Egypt
+            const cleanPhone = phone.replace(/[\s\-\+\(\)]/g, ''); // strip symbols
+            
+            // Route to Saudi WhatsApp if phone matches Saudi prefixes
+            if (cleanPhone.startsWith('966') || cleanPhone.startsWith('00966') || 
+                (cleanPhone.startsWith('5') && cleanPhone.length === 9) || 
+                (cleanPhone.startsWith('05') && cleanPhone.length === 10)) {
+                whatsappNumber = "966562062421"; // Saudi Arabia
+            }
+
             const messageTemplate = 
 `*طلب تواصل جديد من موقع 3M Marketing*
 
