@@ -29,6 +29,38 @@
     --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     
     --container-width: 1240px;
+    
+    --header-bg: rgba(0, 0, 0, 0.7);
+    --header-bg-scrolled: rgba(5, 5, 5, 0.9);
+    --hero-bg: radial-gradient(circle at 70% 30%, #151208 0%, #000000 70%);
+    --hero-logo-bg: radial-gradient(circle, rgba(20, 20, 20, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
+}
+
+[data-theme="light"] {
+    --bg-black: #ffffff;
+    --bg-darker: #fafafa;
+    --bg-dark: #f4f4f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f9f9fb;
+    
+    --text-primary: #18181b;
+    --text-secondary: #3f3f46;
+    --text-muted: #71717a;
+    
+    --border-color: rgba(212, 175, 55, 0.2);
+    --border-hover: rgba(212, 175, 55, 0.5);
+    
+    --gold-glow: rgba(212, 175, 55, 0.06);
+    --gold-glow-strong: rgba(212, 175, 55, 0.25);
+    
+    --gold-gradient: linear-gradient(135deg, #aa7c11 0%, #d4af37 50%, #f6e3a6 100%);
+    --gold-text-gradient: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #ffe082 100%);
+    --dark-gradient: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+    
+    --header-bg: rgba(255, 255, 255, 0.75);
+    --header-bg-scrolled: rgba(244, 244, 246, 0.95);
+    --hero-bg: radial-gradient(circle at 70% 30%, #fffbf0 0%, #ffffff 70%);
+    --hero-logo-bg: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(244, 244, 245, 0.95) 100%);
 }
 
 /* Base & Reset */
@@ -193,7 +225,7 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--header-bg);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-color);
     transition: all var(--transition-normal);
@@ -201,7 +233,29 @@ header {
 
 header.scrolled {
     padding: 8px 0;
-    background: rgba(5, 5, 5, 0.9);
+    background: var(--header-bg-scrolled);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+    border: 1px solid var(--border-color);
+}
+
+.theme-toggle:hover {
+    background: var(--gold-glow);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
 }
 
 .nav-wrapper {
@@ -368,7 +422,7 @@ header.scrolled .logo-img {
     align-items: center;
     position: relative;
     padding-top: 100px;
-    background: radial-gradient(circle at 70% 30%, #151208 0%, #000000 70%);
+    background: var(--hero-bg);
     overflow: hidden;
 }
 
@@ -461,7 +515,7 @@ header.scrolled .logo-img {
 .hero-logo-container {
     width: 320px;
     height: 320px;
-    background: radial-gradient(circle, rgba(20, 20, 20, 0.8) 0%, rgba(5, 5, 5, 0.95) 100%);
+    background: var(--hero-logo-bg);
     border-radius: 50%;
     border: 2px solid var(--border-color);
     display: flex;
